@@ -20,9 +20,21 @@
             }
         </style>
     </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-            <a href="{{route('login.facebook')}}" class="btn btn-primary">Login</a>
+    <body >
+        <div class="container text-center pt-8">
+
+            <div class="row">
+                <div class="col-12">
+                    <h3>{{getenv('APP_NAME')}}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <a href="{{route('login.facebook')}}" class="btn btn-primary">Login</a>
+                </div>
+            </div>
+
+
         </div>
     </body>
 </html>

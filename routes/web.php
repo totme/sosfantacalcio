@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes(['register' => false, 'login' => false]);
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,7 +32,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get('/logout', function () {
-        auth()->logout();
+        Auth::logout();
         return redirect()->route('welcome');
     })->name('logout');
 
@@ -61,7 +62,7 @@ Route::get('/q/{uuid?}', [QuestionController::class, 'show'])->name('question.sh
 
 
 Route::get('/error', function () {
-    return view('welcome');
+    return view('error');
 })->name('error.page');
 
 Route::get('auth/facebook', [FacebookController::class, 'redirectToFacebook'])->name('login.facebook');
